@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/**/*.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/instagram-token",
+        "dest": "/api/instagram-token.js"
+      }
+    ]
+  }
+  
