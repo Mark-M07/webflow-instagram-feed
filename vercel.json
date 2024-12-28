@@ -1,16 +1,15 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "api/**/*.js",
-        "use": "@vercel/node"
-      }
+    "crons": [
+        {
+            "path": "/api/cron",
+            "schedule": "0 0 * * *"
+        }
     ],
     "routes": [
-      {
-        "src": "/instagram-token",
-        "dest": "/api/instagram-token.js"
-      }
+        {
+            "src": "/instagram-token",
+            "dest": "/api/instagram-token.js"
+        }
     ]
-  }
-  
+}

@@ -1,0 +1,17 @@
+Vercel KV CLI:
+
+KEYS *
+GET instagram_token
+GET token_refresh_date
+DEL instagram_token
+DEL token_refresh_date
+
+Vercel Terminal:
+
+vercel --prod
+
+vercel env ls
+vercel env rm INITIAL_INSTAGRAM_TOKEN_SOCIALSITES
+vercel env rm INITIAL_INSTAGRAM_TOKEN_PEPANDGUSTO
+vercel env add INITIAL_INSTAGRAM_TOKEN_SOCIALSITES
+vercel env add INITIAL_INSTAGRAM_TOKEN_PEPANDGUSTO
