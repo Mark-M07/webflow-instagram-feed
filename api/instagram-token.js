@@ -63,8 +63,8 @@ async function validateToken(websiteId, token) {
 }
 
 async function getStoredToken(websiteId) {
-    console.log(`Retrieving stored token for website: ${websiteId}`);
-    const token = await kv.get(`fb_page_token_${websiteId}`);
+    console.log(`Retrieving stored Instagram token for website: ${websiteId}`);
+    const token = await kv.get(`instagram_token_${websiteId.toLowerCase()}`);
     if (token) {
         console.log(`Token retrieved successfully for website: ${websiteId}`);
         return token;
@@ -75,10 +75,12 @@ async function getStoredToken(websiteId) {
 
 async function updateStoredToken(websiteId, newToken) {
     console.log(`Updating stored token for website: ${websiteId}`);
-    await kv.set(`fb_page_token_${websiteId}`, newToken);
+    await kv.set(`instagram_token_${websiteId.toLowerCase()}`, newToken);
     const currentTime = Date.now();
-    await kv.set(`token_refresh_date_${websiteId}`, currentTime);
-    console.log(`Token updated successfully for website: ${websiteId}. Refresh date: ${new Date(currentTime).toISOString()}`);
+    await kv.set(`token_refresh_date_${websiteId.toLowerCase()}`, currentTime);
+    console.log(
+        `Token updated successfully for website: ${websiteId}. Refresh date: ${new Date(currentTime).toISOString()}`
+    );
 }
 
 async function refreshAllTokens() {
